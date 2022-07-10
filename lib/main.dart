@@ -8,11 +8,11 @@ void main() {
 }
 
 class WorkerDetails {
-  late int id;
+  
   late String name;
   late String role;
   
-WorkerDetails({required this.id,required this.name,required this.role});
+WorkerDetails({required this.name,required this.role});
 
   }
 
@@ -24,11 +24,11 @@ class ListScreen extends StatelessWidget {
 
       double width=MediaQuery.of(context).size.width;
     List officeDetails = [
-      WorkerDetails(id: 1, name: 'Dhina', role: 'Developer'),
-      WorkerDetails(id: 2, name: 'Lotus', role: 'Data Entry'),
-      WorkerDetails(id: 3, name: 'Rajesh', role: 'Typist'),
-      WorkerDetails(id: 4, name: 'Abdul', role: 'Team Leader'),
-      WorkerDetails(id: 5, name: 'Ayesha', role: 'Manager'),
+      WorkerDetails( name: 'Dhina', role: 'Developer'),
+      WorkerDetails( name: 'Lotus', role: 'Data Entry'),
+      WorkerDetails( name: 'Rajesh', role: 'Typist'),
+      WorkerDetails( name: 'Abdul', role: 'Team Leader'),
+      WorkerDetails( name: 'Ayesha', role: 'Manager'),
     ];
     return Scaffold(
       appBar: AppBar(
@@ -41,10 +41,8 @@ class ListScreen extends StatelessWidget {
       body: ListView.builder(
           itemCount: 5, itemBuilder: (context, index) => ListTile(
           
-            leading: Text(officeDetails[index].id.toString(),
-            style: TextStyle(fontSize:width*0.07,
-            fontWeight: FontWeight.w500 ),
-          ),
+     
+          leading: CircleAvatar(child: Text(officeDetails[index].name[0]),),
             title: Text(officeDetails[index].name,
              style: TextStyle(fontSize:width*0.07,
             fontWeight: FontWeight.w400 )),
